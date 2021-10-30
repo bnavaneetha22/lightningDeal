@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>LightningDeal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+   <style>
+   @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    scroll-behavior: scroll;
+}
+
+html,
+body {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #accbee 0%, #e7f0fd 100%);
+    text-decoration: none;
+}
+h2
+{
+	
+	font-size:2.5vw;
+	color: blue;
+}
+.offer {
+	padding:0.5rem;
+	border-radius:15px 0px 15px 0px;
+	box-shadow:  1px 1px 2px 2px rgba(150,150,255, 0.6);
+    margin-top:5rem;
+    width:88%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.dayheading
+{
+	padding:0.5rem;
+	border-radius:15px 0px 15px 0px;
+	box-shadow:  1px 1px 2px 2px rgba(150,150,255, 0.6);
+	margin-top:1rem;
+	width:88%;
+        margin-left: auto;
+	margin-right: auto;
+}
+.dayheading:after
+{
+  content: "";
+  display: table;
+  clear: both;
+
+}
+.day 
+{
+  float: left;
+  display: flex;
+  width: 33.33%;  
+}
+.day p
+{
+	font-size:15px;
+}
+#moreweek
+{
+	display: none;
+}
+#moreday
+{
+	display: none;
+}
+#moremonth
+{
+	display: none;
+}
+.weekoffer
+{
+	padding:0.5rem;
+	border-radius:15px 0px 15px 0px;
+	box-shadow:  1px 1px 2px 2px rgba(150,150,255, 0.6);
+	width:88%;
+	margin-bottom:1rem;
+        margin-left: auto;
+	margin-right: auto;	
+}
+.weekoffer:after
+{
+	content: "";
+  display: table;
+  clear: both;
+
+}
+.week 
+{
+  float: left;
+  width: 50%;  
+}
+.monthoffer
+{
+	padding:1rem;
+	border-radius:15px 0px 15px 0px;
+	box-shadow:  1px 1px 2px 2px rgba(150,150,255, 0.6);
+	width:88%;
+        margin-left: auto;
+	margin-right: auto;	
+}
+.monthoffer:after
+{
+	content: "";
+  display: table;
+  clear: both;
+
+}
+.month 
+{
+  float: left;
+  width: 50%;  
+}
+
+.time {
+    float: left;
+    text-align: left;
+    top: 2px;
+}
+
+
+
+.slideshow-container {
+    position: relative;
+    margin: auto;
+    top:1vw;
+    margin-bottom: 2vw;
+    
+}
+
+.slideshow-container img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+.time
+{
+	color: blue;
+}
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .2
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .2
+    }
+    to {
+        opacity: 1
+    }
+}
+
+#container , #container1 , #container2 {
+  height: 60vh;
+  width: 90vw;
+  margin: 0;
+  padding: 0;
+  display: grid ;
+  place-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#slider-container , #slider-container1 ,#slider-container2 {
+  height: 300px;
+  width: 80vw;
+  max-width: 1400px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+#container .btn, #container1 .btn1, #container2 .btn2{
+  position: absolute;
+  cursor: pointer;
+  top: calc(50% - 30px);
+  height: 30px;
+  width: 30px;
+  background-image: linear-gradient( #accbee 10%,#bddbee 20%, #e7f0fd 50%);
+  border-left: 8px solid gray;
+  border-top: 8px solid gray;
+}
+
+
+#container .btn:hover ,#container1 .btn1:hover , #container2 .btn2:hover{
+  width:32px;
+  height:32px;
+}
+
+#container .btn.inactive , #container1 .btn1.inactive , #container2 .btn2.inactive{
+  border-color: rgb(255, 0,0)
+}
+
+#container .btn:first-of-type , #container1 .btn1:first-of-type,#container2 .btn2:first-of-type{
+  transform: rotate(-45deg);
+  left: 10px;
+}
+
+#container .btn:last-of-type , #container1 .btn1:last-of-type, #container2 .btn2:last-of-type {
+  transform: rotate(135deg);
+  right: 10px;
+}
+
+#slider-container #slider, #slider-container1 #slider1 ,#slider-container2 #slider2{
+  display: flex;
+  width: 1000%;
+  height: 100%; 
+  transition: all .5s;
+}
+
+#slider-container1 #slider1 .slide1 , #slider-container #slider .slide , #slider-container2 #slider2 .slide2{
+  height: 100%;
+  margin: auto 10px;
+  background-image: linear-gradient(to bottom, #accbee 10%,#bddbee 20%, #e7f0fd 50%);	
+  border:3px solid black;
+  border-color: #8aa9dd;
+  border-radius:1.5rem;
+  box-shadow: 3px 3px 12px 2px rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+}
+#slider-container1 #slider1 .slide1:hover , #slider-container #slider .slide:hover , #slider-container2 #slider2 .slide2:hover{
+	border:1px solid black;
+	border-color: #8aa9dd;	
+	cursor: pointer;
+	 caret-color: red;
+}
+
+.img
+{
+	width:60%;
+	height:80%;
+}
+.img img
+{
+	width:100%;
+}
+.head
+{
+	font-weight: bold;
+	font-size:20px;
+	color: #5555ff;
+}
+.matter
+{	
+	color: #111199;
+	font-size:15px;
+	text-align: center;
+	padding:1rem;
+}
+@media only screen and (min-width: 1100px) {
+
+  #slider-container #slider .slide, #slider-container1 #slider1 .slide1, #slider-container2 #slider2 .slide2{
+    width: calc(2.5% - 20px);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+
+  #slider-container #slider .slide , #slider-container1 #slider1 .slide1 , #slider-container2 #slider2 .slide2 {
+    width: calc(3.3333333% - 20px);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  #slider-container #slider .slide , #slider-container1 #slider1 .slide1 ,#slider-container2 #slider2 .slide2 {
+    width: calc(5% - 20px);
+  }
+  
+}
+
+@media only screen and (max-width: 550px) {
+
+  #slider-container #slider .slide ,  #slider-container1 #slider1 .slide1 ,  #slider-container2 #slider2 .slide2{
+    width: calc(10% - 20px);
+  }
+
+}
+
+@media screen and (max-width:2000px)
+{
+	
+    .button1 {
+        right:22px;
+        width:50%;
+	font-size:15px;
+	font-weight: bold;
+    }
+   
+}
+@media only screen and (max-width:900px) {
+    
+    .button1 {
+        right:22px;
+        width:100%;
+	font-size:13px;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .slideshow-container{
+	right:20px;
+	}
+    .day p
+	{
+	font-size:10px;
+	}
+    .slideshow-container img {
+        width: 100%;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+   
+   
+}
+
+@media(max-width:1400px) {
+    .divider1::before,
+    .divider2::before,
+    .divider::before {
+        display: none;
+    }
+    
+}
+
+@media(max-width:992px) {
+ 
+	
+    .nab {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        margin: 5px 0px;
+        background-image: none;
+        height: 20vh;
+        background-color: #22577A;
+    }
+    .nab a {
+        padding: 11px;
+        font-size: 18px;
+    }
+    .navbar {
+        box-shadow: none;
+    }
+    .logo-nav {
+        height: 50px;
+        width: 50px;
+    }
+}
+   </style>
+   
+</head>
+
+<body>
+  
+<!--special offer starts here -->
+ <div class="offer" data-aos="zoom-in" data-aos-duration="1900">
+     <h2> Special Offer </h2>
+ </div>
+
+
+      <div class="slideshow-container" data-aos="zoom-in" data-aos-duration="1900">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <a href="service/electrician.html"><img src="images/electrician1200.jpg"></a>
+            <div class="text">hello</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <a href="service/painter.html"><img src="images/painter1200.jpg"></a>
+            <div class="text">text</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <a href="service/plumber.html"><img src="images/plumber1200.jpg"></a>
+            <div class="text">message</div>
+        </div>
+
+    </div>
+<!-- spcial offer ends here -->
+   <!--deal of the day heading -->
+    <div class="dayheading" data-aos="fade-down" data-aos-duration="1900">
+        <div class="day">
+          <h2> Deal of the Day</h2>
+        </div>
+        <div class="day" style="display: flex;">
+	  <i class="fa fa-clock-o" style="font-size:2vw;color:#8999ff;"></i>
+          <div class="time">
+            <p id="demo"></p>
+          </div>
+        </div>
+    </div>
+    <!--sdeal of the day heading ends -->
+        <!--hover cards -->
+
+ <div id="container" data-aos="fade-up" data-aos-duration="1900">
+  <div id="slider-container">
+    <span onclick="slideRight()" class="btn" style="left:50px;"></span>
+      <div id="slider">
+        <div class="slide" onclick="window.location.href = 'service/cleaner.html';">
+		<div class="img"><img src="images/cleaner.jpg"/></div>
+		<div class="head">Cleaner</div>
+		<div class="matter">50% Offer & good service</div>
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/babycare.jpg"/></div>
+		<div class="head">Baby Sitting</div>
+		<div class="matter">30% offer on baby sitting Service</div>	
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/Car-Mechanic.webp"/></div>
+		<div class="head">Mechanic</div>
+		<div class="matter">50% bumper offer on mechanical work</div>
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/plumber.webp"/></div>
+		<div class="head">Plumber</div>
+		<div class="matter">20% discount this week</div>
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/electrician.jpg"/></div>
+		<div class="head">Electrician</div>
+		<div class="matter">750 RS Total home electric work</div>
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/carpenter.jpg"/></div>
+		<div class="head">Carpenter</div>
+		<div class="matter">59% discount on this service</div>
+	</div>
+        <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/cook.jpg"/></div>
+		<div class="head">Cook</div>
+		<div class="matter">500 Rs offer only for this day</div>	
+	</div>
+	 <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/interior.webp"/></div>
+		<div class="head">Interior Designer</div>
+		<div class="matter">Take plan this day only for 1000RS</div>	
+	</div>
+	<div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/legal.jpg"/></div>
+		<div class="head">Legal Service</div>
+		<div class="matter">This service is waiting for give you a wonderful advice</div>	
+	</div>
+	 <div class="slide" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/construction.webp"/></div>
+		<div class="head">construction Worker</div>
+		<div class="matter">This day each employe available only for 500RS</div>	
+	</div>
+        
+        
+    </div>
+    <span onclick="slideLeft()" class="btn" style="right:50px;"></span>
+  </div>
+</div>
+
+    <!-- hover cards ends here-->
+ <div class="weekoffer" data-aos="fade-down" data-aos-duration="1900">
+     <div class="week">
+     <h2> Deal of the Week </h2>
+	</div>
+     
+ </div>
+  	
+        	 <div id="container1" data-aos="fade-up" data-aos-duration="1900">
+  <div id="slider-container1">
+	
+    <span onclick="slideRight1()" class="btn1" style="left:50px;"></span>
+      <div id="slider1">
+	 <div class="slide1" onclick="window.location.href = 'service/cook.html';">
+		<div class="img"><img src="images/cook.jpg"/></div>
+		<div class="head">Cook</div>
+		<div class="matter">500 Rs offer only for this day</div>	
+	</div>
+	 <div class="slide1" onclick="window.location.href = 'service/interior.html';">
+		<div class="img"><img src="images/interior.webp"/></div>
+		<div class="head">Interior Designer</div>
+		<div class="matter">Take plan this day only for 1000RS</div>	
+	</div>
+	<div class="slide1" onclick="window.location.href = 'service/legal.html';">
+		<div class="img"><img src="images/legal.jpg"/></div>
+		<div class="head">Legal Service</div>
+		<div class="matter">This service is waiting for give you a wonderful advice</div>	
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/construction.html';">
+		<div class="img"><img src="images/construction.webp"/></div>
+		<div class="head">construction Worker</div>
+		<div class="matter">This day each employe available only for 500RS</div>
+	</div>
+	<div class="slide1" onclick="window.location.href = 'service/cleaner.html';">
+		<div class="img"><img src="images/cleaner.jpg"/></div>
+		<div class="head">Cleaner</div>
+		<div class="matter">50% Offer & good service</div>
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/caretaker.html';">
+		<div class="img"><img src="images/babycare.jpg"/></div>
+		<div class="head">Baby Sitting</div>
+		<div class="matter">30% offer on baby sitting Service</div>	
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/mechanic.html';">
+		<div class="img"><img src="images/Car-Mechanic.webp"/></div>
+		<div class="head">Mechanic</div>
+		<div class="matter">50% bumper offer on mechanical work</div>
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/plumber.html';">
+		<div class="img"><img src="images/plumber.webp"/></div>
+		<div class="head">Plumber</div>
+		<div class="matter">20% discount this week</div>
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/electrician.html';">
+		<div class="img"><img src="images/electrician.jpg"/></div>
+		<div class="head">Electrician</div>
+		<div class="matter">750 RS Total home electric work</div>
+	</div>
+        <div class="slide1" onclick="window.location.href = 'service/carpentar.html';">
+		<div class="img"><img src="images/carpenter.jpg"/></div>
+		<div class="head">Carpenter</div>
+		<div class="matter">59% discount on this service</div>
+	</div>
+   
+        
+    </div>
+    <span onclick="slideLeft1()" class="btn1" style="right:50px;"></span>
+  </div>
+</div>
+
+ <div class="monthoffer" data-aos="fade-down" data-aos-duration="1900">
+     <div class="month">
+     <h2> Deal of the month</h2>
+	</div>
+    
+     
+ </div>
+   
+	 <div id="container2" data-aos="fade-up" data-aos-duration="1900">
+  <div id="slider-container2">
+    <span onclick="slideRight2()" class="btn2"></span>
+      <div id="slider2">
+	<div class="slide2" onclick="window.location.href = 'service/electrician.html';">
+		<div class="img"><img src="images/electrician.jpg"/></div>
+		<div class="head">Electrician</div>
+		<div class="matter">750 RS Total home electric work</div>
+	</div>
+        <div class="slide2" onclick="window.location.href = 'service/carpentar.html';">
+		<div class="img"><img src="images/carpenter.jpg"/></div>
+		<div class="head">Carpenter</div>
+		<div class="matter">59% discount on this service</div>
+	</div>
+        <div class="slide2" onclick="window.location.href = 'service/cook.html';">
+		<div class="img"><img src="images/cook.jpg"/></div>
+		<div class="head">Cook</div>
+		<div class="matter">500 Rs offer only for this day</div>	
+	</div>
+	 <div class="slide2" onclick="window.location.href = 'service/.html';">
+		<div class="img"><img src="images/interior.webp"/></div>
+		<div class="head">Interior Designer</div>
+		<div class="matter">Take plan this day only for 1000RS</div>	
+	</div>
+        <div class="slide2" onclick="window.location.href = 'service/cleaner.html';" >
+		<div class="img"><img src="images/cleaner.jpg"/></div>
+		<div class="head">Cleaner</div>
+		<div class="matter">50% Offer & good service</div>
+	</div>
+
+        <div class="slide2" onclick="window.location.href = 'service/caretaker.html';">
+		<div class="img"><img src="images/babycare.jpg"/></div>
+		<div class="head">Baby Sitting</div>
+		<div class="matter">30% offer on baby sitting Service</div>	
+	</div>
+        <div class="slide2" onclick="window.location.href = 'service/mechanic.html';">
+		<div class="img"><img src="images/Car-Mechanic.webp"/></div>
+		<div class="head">Mechanic</div>
+		<div class="matter">50% bumper offer on mechanical work</div>
+	</div>
+        <div class="slide2"  onclick="window.location.href = 'service/plumber.html';">
+		<div class="img"><img src="images/plumber.webp"/></div>
+		<div class="head">Plumber</div>
+		<div class="matter">20% discount this week</div>
+	</div>
+        <div class="slide2"  onclick="window.location.href = 'service/electrician.html';">
+		<div class="img"><img src="images/electrician.jpg"/></div>
+		<div class="head">Electrician</div>
+		<div class="matter">750 RS Total home electric work</div>
+	</div>
+        <div class="slide2"  onclick="window.location.href = 'service/carpenter.html';">
+		<div class="img"><img src="images/carpenter.jpg"/></div>
+		<div class="head">Carpenter</div>
+		<div class="matter">59% discount on this service</div>
+	</div>
+        
+        
+    </div>
+    <span onclick="slideLeft2()" class="btn2"></span>
+  </div>
+</div>
+ 
+<script src="lightningDeal.js"></script>
+
+    
+</body>
+
+
+</html>
